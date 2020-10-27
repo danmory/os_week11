@@ -1,0 +1,8 @@
+The difference in outputs of two programs is because of line buffering. 
+In the 1st program before fork call the buffer is not empty(consists of work 'Hello') BUT
+the 2nd one is empty because before fork buffer was cleaned after print command(using '\n' symbol in printf).
+So, in the 1st program each of two processes will have buffer with word 'Hello' and 
+in the 2nd program each of them will have empty buffer. 
+When the final print occurs the 1st program will print two words 'Hello' on the different lines and
+the 2nd one will print remaining empty lines.
+
